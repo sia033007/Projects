@@ -35,6 +35,19 @@ public class Sample : MonoBehaviour
                 agent.destination = hit.point;
             }
         }
+        if(Input.touchCount>0)
+        {
+            Touch t = Input.GetTouch(0);
+            float midScreen = Screen.width/2;
+            if(t.phase == TouchPhase.Began && t.position.x <midScreen)
+            {
+                transform.Translate(0,2,2);
+            }
+            if(t.phase ==TouchPhase.Stationary && t.position.x >midScreen)
+            {
+                transform.Translate(0,-2,1);
+            }
+        }
         
     }
     IEnumerator Login()
