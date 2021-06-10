@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 public class Sample : MonoBehaviour
 {
+    bool isLocked;
     public NavMeshAgent agent;
     public InputField username;
     public InputField password;
@@ -15,6 +16,7 @@ public class Sample : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isLocked = PlayerPrefs.GetInt("Locked")==0?false:true;
         City city1 = new City(2000,"Birjand","Iran");
         City city2 = new City(1000000,"NewYork","USA");
         city1.MyCity();
@@ -47,6 +49,15 @@ public class Sample : MonoBehaviour
             {
                 transform.Translate(0,-2,1);
             }
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+            PlayerPrefs.SetInt("Locked",0);
+        }
+        if(PlayerPrefs.GetInt("Locked")==0)
+        {
+            Debug.Log(isLocked);
+
         }
         
     }
