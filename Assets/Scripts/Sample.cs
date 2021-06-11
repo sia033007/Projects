@@ -22,7 +22,7 @@ public class Sample : MonoBehaviour
     {
         InvokeRepeating("IncreasePoint",5f,5f);
         isLocked = PlayerPrefs.GetInt("Locked")==0?false:true;
-        City city1 = new City(2000,"Birjand","Iran");
+        City city1 = new City(2000,"Birjand","IRAN");
         City city2 = new City(1000000,"NewYork","USA");
         city1.MyCity();
         city2.MyCity();
@@ -81,7 +81,8 @@ public class Sample : MonoBehaviour
             Debug.Log(request.downloadHandler.text);
         }
     }
-    public class City
+}
+public class City
     {
         public int population;
         public string name;
@@ -98,4 +99,5 @@ public class Sample : MonoBehaviour
             Debug.Log($"{name} is a city in {country} with {population}");
         }
     }
-}
+    
+
